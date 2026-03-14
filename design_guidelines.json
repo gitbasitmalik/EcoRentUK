@@ -1,0 +1,156 @@
+{
+  "project_name": "EcoRent UK",
+  "design_philosophy": {
+    "identity": "E1: The Anti-AI Designer",
+    "style": "Tactile Maximalism / Cyber-Nature",
+    "core_principles": [
+      "Fusion over Imitation: Mix UK Real Estate solidity with Cyberpunk energy.",
+      "Emotion First: Sustainability isn't boring; it's electric and urgent.",
+      "Content is King: Data visualization is the hero.",
+      "Negative Space: Use deep navy voids to let the mint green pop."
+    ]
+  },
+  "theme": {
+    "mode": "dark",
+    "colors": {
+      "primary": "#00FFAB",
+      "primary_foreground": "#000000",
+      "background": "#0A192F",
+      "foreground": "#F8FAFC",
+      "card": "rgba(10, 25, 47, 0.6)",
+      "card_foreground": "#F8FAFC",
+      "popover": "#0A192F",
+      "popover_foreground": "#F8FAFC",
+      "secondary": "#112240",
+      "secondary_foreground": "#00FFAB",
+      "muted": "#1E293B",
+      "muted_foreground": "#94A3B8",
+      "accent": "#00FFAB",
+      "accent_foreground": "#000000",
+      "destructive": "#FF3B30",
+      "destructive_foreground": "#FFFFFF",
+      "border": "rgba(255, 255, 255, 0.1)",
+      "input": "rgba(255, 255, 255, 0.05)",
+      "ring": "#00FFAB",
+      "chart_1": "#00FFAB",
+      "chart_2": "#2DD4BF",
+      "chart_3": "#3B82F6",
+      "chart_4": "#F472B6",
+      "chart_5": "#FBBF24"
+    },
+    "gradients": {
+      "hero_glow": "radial-gradient(circle at 50% 50%, rgba(0, 255, 171, 0.15) 0%, rgba(10, 25, 47, 0) 70%)",
+      "card_shine": "linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.05) 25%, transparent 30%)"
+    }
+  },
+  "typography": {
+    "font_family": {
+      "heading": ["Outfit", "sans-serif"],
+      "body": ["Manrope", "sans-serif"],
+      "mono": ["JetBrains Mono", "monospace"]
+    },
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-bold tracking-tight",
+      "h2": "text-3xl md:text-5xl font-semibold tracking-tight",
+      "h3": "text-2xl md:text-3xl font-semibold",
+      "body_lg": "text-lg leading-relaxed",
+      "body": "text-base leading-relaxed text-slate-300",
+      "caption": "text-sm text-slate-400 uppercase tracking-widest"
+    }
+  },
+  "layout": {
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "grid_system": {
+      "marketing": "grid grid-cols-1 md:grid-cols-12 gap-8",
+      "dashboard": "grid grid-cols-1 lg:grid-cols-4 gap-6",
+      "bento_marketing": "grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 auto-rows-[minmax(180px,auto)] gap-4"
+    },
+    "spacing": {
+      "section_padding": "py-24 md:py-32",
+      "card_padding": "p-6 md:p-8"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#00FFAB] text-black hover:bg-[#00CC88] rounded-full px-8 py-4 font-bold transition-transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(0,255,171,0.3)]",
+      "secondary": "bg-transparent border border-[#00FFAB]/30 text-[#00FFAB] hover:bg-[#00FFAB]/10 rounded-full px-8 py-4 font-semibold transition-all hover:border-[#00FFAB]",
+      "ghost": "text-slate-300 hover:text-white hover:bg-white/5 rounded-lg px-4 py-2"
+    },
+    "cards": {
+      "glass": "bg-[#0A192F]/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl hover:border-[#00FFAB]/50 transition-colors duration-300",
+      "solid": "bg-[#112240] border border-white/5 rounded-2xl",
+      "interactive": "group relative overflow-hidden bg-[#0A192F]/60 backdrop-blur-xl border border-white/10 rounded-2xl hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_10px_40px_-10px_rgba(0,255,171,0.2)]"
+    },
+    "inputs": {
+      "default": "bg-[#0A192F]/50 border border-white/10 focus:border-[#00FFAB] focus:ring-1 focus:ring-[#00FFAB] rounded-xl py-3 px-4 text-white placeholder:text-slate-500"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": {
+      "heavy": "backdrop-blur-2xl bg-[#0A192F]/80 border-b border-white/10",
+      "light": "backdrop-blur-md bg-[#0A192F]/40 border border-white/10"
+    },
+    "shadows": {
+      "glow": "0 0 20px rgba(0, 255, 171, 0.15)",
+      "neon_text": "0 0 10px rgba(0, 255, 171, 0.5)"
+    },
+    "borders": {
+      "tracing_beam": "relative after:absolute after:inset-0 after:rounded-2xl after:p-[1px] after:bg-gradient-to-r after:from-transparent after:via-[#00FFAB] after:to-transparent after:opacity-0 hover:after:opacity-100 after:transition-opacity"
+    }
+  },
+  "image_urls": {
+    "hero": {
+      "url": "https://images.unsplash.com/photo-1761158497156-c8f202a07b42?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBicmljayUyMGhvdXNlJTIwZXh0ZXJpb3J8ZW58MHx8fHwxNzczNDQxOTkxfDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Modern sustainable UK home with large windows"
+    },
+    "features": [
+      {
+        "url": "https://images.unsplash.com/photo-1756542713155-94f62d47d1b5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwyfHxzb2xhciUyMHBhbmVscyUyMHJlc2lkZW50aWFsJTIwcm9vZnxlbnwwfHx8fDE3NzM0NDE5OTJ8MA&ixlib=rb-4.1.0&q=85",
+        "alt": "Solar panels on roof"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1758873269317-51888e824b28?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBvZmZpY2UlMjBtZWV0aW5nJTIwZGl2ZXJzZSUyMHRlYW18ZW58MHx8fHwxNzczNDQxOTkzfDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Team collaborating"
+      }
+    ],
+    "testimonials": [
+      {
+        "url": "https://images.unsplash.com/photo-1743487014165-c26c868b8186?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzOTB8MHwxfHNlYXJjaHwyfHxoYXBweSUyMHBlcnNvbiUyMGhvbGRpbmclMjBob3VzZSUyMGtleXN8ZW58MHx8fHwxNzczNDQxOTkyfDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Happy tenant with keys"
+      }
+    ]
+  },
+  "specific_instructions": {
+    "landing_page": {
+      "hero": "Use framer-motion to create a 3D tilt effect on the main glass card. The background should be Deep Navy (#0A192F) with a subtle animated 'neural network' or grid pattern in low opacity.",
+      "scroll_story": "Implement 'Scroll-Storytelling' where sections fade in and slide up. Use sticky positioning for text while images change on the right."
+    },
+    "dashboard": {
+      "layout": "Sidebar on the left (fixed), content on the right. Sidebar must be glassmorphism.",
+      "sustainability_tracker": "Use circular progress bars (SVG) for Energy Rating. Color code: A (Green) to G (Red). Animated 'counting up' numbers.",
+      "chat": "Layout should resemble WhatsApp/Telegram but strictly in the Deep Navy theme. User messages in #00FFAB (black text), AI messages in #1E293B (white text)."
+    }
+  },
+  "universal_guidelines": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Use 'sonner' for toasts.",
+    "Components MUST use named exports.",
+    "Pages MUST use default exports."
+  ],
+  "accessibility": {
+    "contrast": "Ensure #00FFAB text is used on dark backgrounds only. For light backgrounds, use a darker teal.",
+    "motion": "Respect prefers-reduced-motion."
+  },
+  "libraries": {
+    "animations": "framer-motion",
+    "charts": "recharts",
+    "icons": "lucide-react",
+    "toast": "sonner"
+  }
+}

@@ -1,0 +1,53 @@
+.App {
+    min-height: 100vh;
+}
+
+/* Perspective for 3D effects */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+    background-color: rgba(0, 255, 171, 0.3);
+    color: white;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+    outline: 2px solid #00FFAB;
+    outline-offset: 2px;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Transform GPU for better performance */
+.transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
