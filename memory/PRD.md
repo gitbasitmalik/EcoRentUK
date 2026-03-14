@@ -100,8 +100,8 @@ Build a comprehensive, full-stack Property Management SaaS called 'EcoRent UK' u
 - **Frontend:** React 19, Tailwind CSS, Framer Motion, Shadcn UI, Recharts
 - **Backend:** FastAPI, Motor (async MongoDB), pyotp (2FA)
 - **Database:** MongoDB
-- **Auth:** JWT sessions + Emergent Google OAuth + TOTP 2FA
-- **AI:** Claude Sonnet 4.5 via Emergent Integrations
+- **Auth:** JWT sessions + Google OAuth + TOTP 2FA
+- **AI:** Claude Sonnet (via API)
 - **Email:** Resend (ready, requires API key)
 - **Styling:** Custom CSS with glassmorphism effects
 
