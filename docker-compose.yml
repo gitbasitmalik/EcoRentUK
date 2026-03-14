@@ -1,0 +1,70 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# EcoRent UK — docker-compose
+#
+# Usage (development / self-hosted):
+#
+#   1. Copy the example env files and fill in your values:
+#        cp backend/.env.example backend/.env
+#        cp frontend/.env.example frontend/.env
+#
+#   2. Build and start all services:
+#        docker compose up --build
+#
+#   Frontend → http://localhost:3000
+#   Backend  → http://localhost:8001
+#   API docs → http://localhost:8001/docs
+#
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+  # ── MongoDB ─────────────────────────────────────────────────────────────────
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── FastAPI backend ──────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    env_file:
+      - ./backend/.env
+    environment:
+      # Override MONGO_URL to point to the compose service
+      MONGO_URL: mongodb://mongo:27017
+    depends_on:
+      mongo:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/api/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  # ── React frontend (served by Nginx) ────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # These are baked into the static build — set them in frontend/.env
+        REACT_APP_BACKEND_URL: ${REACT_APP_BACKEND_URL:-http://localhost:8001}
+        REACT_APP_GOOGLE_CLIENT_ID: ${REACT_APP_GOOGLE_CLIENT_ID:-}
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:

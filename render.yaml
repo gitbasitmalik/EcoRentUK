@@ -1,0 +1,78 @@
+# render.yaml — EcoRent UK deployment on Render.com
+#
+# Docs: https://render.com/docs/blueprint-spec
+#
+# Steps:
+#   1. Push this file to your GitHub repo.
+#   2. Go to https://dashboard.render.com → "New Blueprint Instance".
+#   3. Connect the repo and Render will provision both services below.
+#   4. Set the required secret environment variables in the Render dashboard
+#      (MONGO_URL from MongoDB Atlas, GOOGLE_CLIENT_ID, etc.).
+#
+# Note: Render does not offer a managed MongoDB database.
+#       Use MongoDB Atlas (https://www.mongodb.com/atlas) — the free M0 tier is sufficient.
+
+services:
+  # ── FastAPI backend ─────────────────────────────────────────────────────────
+  - type: web
+    name: ecorentuk-backend
+    runtime: python
+    pythonVersion: "3.11"
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: MONGO_URL
+        sync: false          # Set to your MongoDB Atlas connection string
+      - key: DB_NAME
+        value: ecorentuk
+      - key: CORS_ORIGINS
+        # Update once the frontend service URL is known, e.g.:
+        # https://ecorentuk-frontend.onrender.com
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false          # Set manually in the dashboard
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true  # Render auto-generates a secure random value
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: SENDER_EMAIL
+        value: onboarding@resend.dev
+      - key: ADMIN_EMAIL
+        sync: false
+
+  # ── React frontend (static site) ────────────────────────────────────────────
+  - type: web
+    name: ecorentuk-frontend
+    runtime: static
+    region: oregon
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    staticPublishPath: build
+    # SPA fallback — all routes serve index.html
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: REACT_APP_BACKEND_URL
+        # Update to your backend service URL, e.g.:
+        # https://ecorentuk-backend.onrender.com
+        sync: false
+      - key: REACT_APP_GOOGLE_CLIENT_ID
+        sync: false          # Set manually in the dashboard
+      - key: ENABLE_HEALTH_CHECK
+        value: "false"
+

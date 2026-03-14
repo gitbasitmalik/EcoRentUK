@@ -43,3 +43,6 @@ frontend/node_modules/
 # Misc
 dump.rdb
 *.pack
+
+# Pip install artefacts (files accidentally created by `pip install =X.Y.Z`)
+=*
